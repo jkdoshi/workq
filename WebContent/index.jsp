@@ -15,11 +15,19 @@
 	<h2>Date: <%=new java.util.Date()%></h2>
 	<%-- all _input_ components must be inside a "form" --%>
 	<h:form id="frmHello">
-	Please enter your name:
-		<%-- input text box component to enter updates model state --%>
-		<h:inputText id="txtName" value="#{hello.name}" />
-		<%-- command button component to submit --%>
-		<h:commandButton id="btnSubmit" value="Say Hello!" action="#{hello.upcase}" />
+		<h:panelGroup>
+			<table>
+				<tr>
+					<td>Please enter your name</td>
+					<td><%-- input text box component to enter updates model state --%>
+					<h:inputText id="txtName" value="#{hello.name}" /></td>
+				</tr>
+				<tr>
+					<td><%-- command button component to submit --%> <h:commandButton
+						id="btnSubmit" value="Say Hello!" action="#{hello.upcase}" /></td>
+				</tr>
+			</table>
+		</h:panelGroup>
 	</h:form>
 	<hr />
 	<%-- output text component to show model state --%>
