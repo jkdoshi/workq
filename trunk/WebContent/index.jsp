@@ -19,11 +19,12 @@
 		<%-- input text box component to enter updates model state --%>
 		<h:inputText id="txtName" value="#{hello.name}" />
 		<%-- command button component to submit --%>
-		<h:commandButton id="btnSubmit" value="Say Hello!" />
+		<h:commandButton id="btnSubmit" value="Say Hello!" action="#{hello.upcase}" />
 	</h:form>
 	<hr />
 	<%-- output text component to show model state --%>
 	<p>Hello "<h:outputText value="#{hello.name}" />"!</p>
+	<p>Hello CAP "<h:outputText value="#{hello.capName}" />"!</p>
 	</body>
 	</html>
 </f:view>
