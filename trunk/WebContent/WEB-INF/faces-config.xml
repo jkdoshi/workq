@@ -17,4 +17,21 @@
 		</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
+
+	<managed-bean>
+		<managed-bean-name>notes</managed-bean-name>
+		<managed-bean-class>
+			com.sysdelphia.workq.backing.NotesAction
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+	<navigation-rule>
+		<from-view-id>/index.jsp</from-view-id>
+		<navigation-case>
+			<from-action>#{notes.fetchRows}</from-action>
+			<to-view-id>/notes.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
 </faces-config>
