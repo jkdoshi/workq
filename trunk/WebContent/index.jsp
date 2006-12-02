@@ -21,7 +21,7 @@
 			<%-- input text box component to enter updates model state --%>
 			<h:inputText id="txtName" value="#{hello.name}" />
 			<%-- command button component to submit --%>
-			<h:commandButton id="btnSubmit" value="Say Hello!"
+			<h:commandLink id="btnSubmit" value="Say Hello!"
 				action="#{hello.upcase}" />
 			<h:panelGroup />
 		</h:panelGrid>
