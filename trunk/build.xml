@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<project name="workq" default="default">
+	<description>
+    	WorkQ build file
+    </description>
+
+	<target name="default" depends="war" description="--> the default target that depends on the real default">
+	</target>
+
+	<target name="war" depends="compile" description="--> packages the web-application for deployment">
+		<mkdir dir="${dist.dir}" />
+		<war destfile="${war.file}" basedir="${webcontent}" webxml="${webinf}/web.xml">
+			<classes dir="${build.classes}" />
+		</war>
+	</target>
+
+	<target name="compile" depends="init" description="--> compiles Java source files">
+		<mkdir dir="${build.classes}" />
+		<javac srcdir="${src.dir}" destdir="${build.classes}" classpathref="build.classpath" />
+	</target>
+
+	<target name="release" depends="distclean,war" description="--> builds the final release from scratch" />
+
+	<target name="distclean" depends="clean" description="--> removes final artifacts of the build">
+		<delete dir="${dist.dir}" />
+	</target>
+
+	<target name="clean" depends="init" description="--> removes intermediate artifacts of the build">
+		<delete dir="${build.classes}" />
+	</target>
+
+	<target name="init">
+		<property name="webcontent" value="${basedir}/WebContent" />
+		<property name="webinf" value="${webcontent}/WEB-INF" />
+		<property name="src.dir" value="${basedir}/src" />
+		<property name="dist.dir" value="${basedir}/dist" />
+		<property name="war.filename" value="${ant.project.name}.war" />
+		<property name="war.file" value="${dist.dir}/${war.filename}" />
+		<property name="build.dir" value="${basedir}/build" />
+		<property name="build.classes" value="${build.dir}/classes/" />
+		<property name="tomcat.home" location="${basedir}/../apache-tomcat-5.5.17" />
+		<path id="build.classpath">
+			<fileset dir="${webinf}/lib" includes="*.jar" />
+			<pathelement location="${tomcat.home}/common/lib/servlet-api.jar" />
+		</path>
+	</target>
+
+</project>
+

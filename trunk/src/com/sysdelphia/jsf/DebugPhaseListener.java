@@ -8,6 +8,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 public class DebugPhaseListener implements PhaseListener {
+	private static final long serialVersionUID = -2755103300480151574L;
 	private static final Log log = LogFactory.getLog(DebugPhaseListener.class);
 
 	public DebugPhaseListener() {
