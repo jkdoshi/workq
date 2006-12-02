@@ -13,6 +13,8 @@
 	<body>
 	<h1>Hello Java Server Faces</h1>
 	<h2>Date: <%=new java.util.Date()%></h2>
+	<h:outputText value="You are logged in as user: #{facesContext.externalContext.request.remoteUser}"/>
+	<hr />
 	<%-- all _input_ components must be inside a "form" --%>
 	<h:form id="frmHello">
 		<%-- in a panelGrid, each component is one cell --%>
