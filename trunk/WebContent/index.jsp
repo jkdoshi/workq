@@ -16,20 +16,24 @@
 	<%-- all _input_ components must be inside a "form" --%>
 	<h:form id="frmHello">
 		<%-- in a panelGrid, each component is one cell --%>
-		<h:panelGrid id="grid" columns="2">
+		<h:panelGrid id="grid" columns="3">
 			<h:outputText value="Please enter your name" />
 			<%-- input text box component to enter updates model state --%>
-			<h:inputText id="txtName" value="#{hello.name}" />
+			<h:inputText id="txtName" value="#{hello.name}" required="true" /><h:message for="txtName"/>
+			<h:outputText value="Please enter your name" />
+			<h:inputText id="txtDummy" value="#{hello.name}" required="false" /><h:message for="txtDummy"/>
 			<%-- command button component to submit --%>
-			<h:commandLink id="btnSubmit" value="Say Hello!"
+			<h:commandButton id="btnSubmit" value="Say Hello!"
 				action="#{hello.upcase}" />
-			<h:panelGroup />
+			<h:commandButton type="reset" /><h:message for="btnSubmit"/>
 		</h:panelGrid>
 	</h:form>
 	<hr />
 	<%-- output text component to show model state --%>
 	<p>Hello "<h:outputText value="#{hello.name}" />"!</p>
 	<p>Hello CAP "<h:outputText value="#{hello.capName}" />"!</p>
+	<hr />
+	<h:messages showDetail="true" showSummary="false"/>
 	</body>
 	</html>
 </f:view>
