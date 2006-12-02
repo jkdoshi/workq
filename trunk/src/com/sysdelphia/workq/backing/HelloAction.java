@@ -36,7 +36,7 @@ public class HelloAction {
 	}
 	
 	public void upcase() {
-		log.info("Upcasing ...");
+		log.debug("Upcasing ...");
 		capName = name.toUpperCase();
 	}
 }

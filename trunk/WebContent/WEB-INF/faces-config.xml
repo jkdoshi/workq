@@ -3,10 +3,18 @@
   "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
   "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
 <faces-config xmlns="http://java.sun.com/JSF/Configuration">
+	<lifecycle>
+		<phase-listener>
+			com.sysdelphia.jsf.DebugPhaseListener
+		</phase-listener>
+	</lifecycle>
+
 	<managed-bean>
 		<description>backing bean that says hello</description>
 		<managed-bean-name>hello</managed-bean-name>
-		<managed-bean-class>com.sysdelphia.workq.backing.HelloAction</managed-bean-class>
+		<managed-bean-class>
+			com.sysdelphia.workq.backing.HelloAction
+		</managed-bean-class>
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 </faces-config>
