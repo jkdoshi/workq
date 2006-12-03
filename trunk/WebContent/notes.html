@@ -13,30 +13,29 @@
 <ui:composition template="/WEB-INF/templates/layout.html">
 	<ui:define name="title">Selected Notes</ui:define>
 	<ui:define name="content">
-		<h:dataTable var="row" value="#{notes.rows}" rowClasses="odd,even"
-			columnClasses="odd,even">
-			<h:column>
-				<f:facet name="header">Id</f:facet>
-				#{row.id}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Category</f:facet>
-				#{row.category}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Body</f:facet>
-				<span onmouseover="hilite(this.parentNode.parentNode)"
-					onmouseout="unhilite(this.parentNode.parentNode)">#{row.body}</span>
-			</h:column>
-			<h:column>
-				<f:facet name="header">Created By</f:facet>
-				#{row.creator}
-			</h:column>
-			<h:column>
-				<f:facet name="header">Creation Timestamp</f:facet>
-				#{row.createTimestamp}
-			</h:column>
-		</h:dataTable>
+		<table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Category</th>
+					<th>Body</th>
+					<th>Created By</th>
+					<th>Creation Timestamp</th>
+				</tr>
+			</thead>
+			<tbody>
+				<ui:repeat var="row" value="#{notes.rows}">
+					<tr onmouseover="hilite(this)" onmouseout="unhilite(this)"
+						class="#{(row.id % 2 == 0) ? 'even' : 'odd'}">
+						<td>#{row.id}</td>
+						<td>#{row.category}</td>
+						<td>#{row.body}</td>
+						<td>#{row.creator}</td>
+						<td>#{row.createTimestamp}</td>
+					</tr>
+				</ui:repeat>
+			</tbody>
+		</table>
 	</ui:define>
 </ui:composition>
 </body>
