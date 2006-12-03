@@ -42,9 +42,12 @@ div.horizontal {
     display: inline;
 }
 
-table,tr,td,th {
-	border: solid black 1px;
+div.scrollable table {
 	border-collapse: collapse;
+}
+
+div.scrollable td, div.scrollable th {
+	border: solid black 1px;
 }
 
 tr.odd {
@@ -63,3 +66,16 @@ td.even {
 tr.hilite {
 	background-color: gold;
 }
+
+/* BEGIN: *************** Scrolling Table with static headers */
+div.scrollable {
+	overflow: scroll;
+}
+
+div.scrollable th  {
+	position: relative;
+	z-index: 20;
+	top: expression(this.parentNode.parentNode.parentNode.parentNode.scrollTop);
+	/*              th  .tr        .thead     .table     .div */
+}
+/* END  : *************** Scrolling Table with static headers */
