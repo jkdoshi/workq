@@ -9,16 +9,13 @@
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Notes</title>
-	<style type="text/css">
-		table,tr,td,th {
-			border: solid black 1px;
-			border-collapse: collapse;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/global.css"/>
+	<script type="text/javascript" src="js/global.js"/>
 	</head>
 	<body>
 	<h1>Selected Notes</h1>
-	<h:dataTable var="row" value="#{notes.rows}">
+	<h:dataTable var="row" value="#{notes.rows}" rowClasses="odd,even"
+		columnClasses="odd,even">
 		<h:column>
 			<f:facet name="header">
 				<h:outputText value="Id" />
@@ -35,7 +32,7 @@
 			<f:facet name="header">
 				<h:outputText value="Body" />
 			</f:facet>
-			<h:outputText value="#{row.body}" />
+			<h:outputText value="#{row.body}" onmouseover="hilite(this.parentNode.parentNode)" onmouseout="unhilite(this.parentNode.parentNode)"/>
 		</h:column>
 		<h:column>
 			<f:facet name="header">

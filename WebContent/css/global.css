@@ -1,0 +1,21 @@
+table,tr,td,th {
+	border: solid black 1px;
+	border-collapse: collapse;
+}
+
+tr.odd {
+	background-color: lightblue;
+}
+
+th {
+	color: white;
+	background-color: blue;
+}
+
+td.even {
+	background-color: lavender;
+}
+
+tr.hilite {
+	background-color: gold;
+}
