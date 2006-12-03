@@ -3,6 +3,14 @@
   "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.1//EN"
   "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
 <faces-config xmlns="http://java.sun.com/JSF/Configuration">
+
+	<application>
+		<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+		<locale-config>
+			<default-locale>en-US</default-locale>
+		</locale-config>
+	</application>
+
 	<lifecycle>
 		<phase-listener>
 			com.sysdelphia.jsf.DebugPhaseListener
