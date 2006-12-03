@@ -42,4 +42,12 @@
 		</navigation-case>
 	</navigation-rule>
 
+	<navigation-rule>
+		<from-view-id>/index.html</from-view-id>
+		<navigation-case>
+			<from-action>#{notes.fetchRows}</from-action>
+			<to-view-id>/notes.html</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
 </faces-config>
