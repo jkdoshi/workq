@@ -13,6 +13,7 @@
 <ui:composition template="/WEB-INF/templates/layout.html">
 	<ui:define name="title">Selected Notes</ui:define>
 	<ui:define name="content">
+		<div style="height: 300px" class="scrollable">
 		<table>
 			<thead>
 				<tr>
@@ -23,7 +24,7 @@
 					<th>Creation Timestamp</th>
 				</tr>
 			</thead>
-			<tbody style="height: 300px; overflow: scroll">
+			<tbody>
 				<ui:repeat var="row" value="#{notes.rows}">
 					<tr onmouseover="hilite(this)" onmouseout="unhilite(this)"
 						class="#{(row.id % 2 == 0) ? 'even' : 'odd'}">
@@ -36,6 +37,7 @@
 				</ui:repeat>
 			</tbody>
 		</table>
+		</div>
 	</ui:define>
 </ui:composition>
 </body>
