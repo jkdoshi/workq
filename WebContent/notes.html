@@ -23,7 +23,7 @@
 					<th>Creation Timestamp</th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="height: 300px; overflow: scroll">
 				<ui:repeat var="row" value="#{notes.rows}">
 					<tr onmouseover="hilite(this)" onmouseout="unhilite(this)"
 						class="#{(row.id % 2 == 0) ? 'even' : 'odd'}">
