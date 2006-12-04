@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:wq="http://www.sysdelphia.com/workq">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Accordion</title>
+</head>
+<body>
+<!-- everything outside the ui:composition tag is going to be removed by facelets compiler -->
+<ui:composition template="/WEB-INF/templates/layout.html">
+	<ui:define name="title">Accordion</ui:define>
+	<ui:define name="content">
+		<t:saveState value="#{selectedPanel}" />
+		<h:form id="frm">
+		<table class='accordion'>
+			<tr>
+				<td>
+					<wq:accordion-panel label="Queued" id="queued" height="100px" width="180px">
+					<table>
+						<tr><td>Queued 1</td></tr>
+						<tr><td>Queued 2</td></tr>
+						<tr><td>Queued 3</td></tr>
+						<tr><td>Queued 4</td></tr>
+						<tr><td>Queued 4</td></tr>
+						<tr><td>Queued 5</td></tr>
+						<tr><td>Queued 6</td></tr>
+						<tr><td>Queued 7</td></tr>
+						<tr><td>Queued 8</td></tr>
+						<tr><td>Queued 9</td></tr>
+						<tr><td>Queued 10</td></tr>
+						<tr><td>Queued 11</td></tr>
+						<tr><td>Queued 12</td></tr>
+						<tr><td>Queued 13</td></tr>
+						<tr><td>Queued 14</td></tr>
+						<tr><td>Queued 15</td></tr>
+						<tr><td>Queued 16</td></tr>
+						<tr><td>Queued 17</td></tr>
+						<tr><td>Queued 18</td></tr>
+						<tr><td>Queued 19</td></tr>
+						<tr><td>Queued 20</td></tr>
+					</table>
+					</wq:accordion-panel>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<wq:accordion-panel label="Pending" id="pending" height="100px" width="180px">
+					<table>
+						<tr><td>Pending 1</td></tr>
+						<tr><td>Pending 2</td></tr>
+						<tr><td>Pending 3</td></tr>
+						<tr><td>Pending 4</td></tr>
+						<tr><td>Pending 4</td></tr>
+						<tr><td>Pending 5</td></tr>
+						<tr><td>Pending 6</td></tr>
+						<tr><td>Pending 7</td></tr>
+						<tr><td>Pending 8</td></tr>
+						<tr><td>Pending 9</td></tr>
+						<tr><td>Pending 10</td></tr>
+						<tr><td>Pending 11</td></tr>
+						<tr><td>Pending 12</td></tr>
+						<tr><td>Pending 13</td></tr>
+						<tr><td>Pending 14</td></tr>
+						<tr><td>Pending 15</td></tr>
+						<tr><td>Pending 16</td></tr>
+						<tr><td>Pending 17</td></tr>
+						<tr><td>Pending 18</td></tr>
+						<tr><td>Pending 19</td></tr>
+						<tr><td>Pending 20</td></tr>
+					</table>
+					</wq:accordion-panel>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<wq:accordion-panel label="Ad-hoc Search" id="search" height="100px" width="180px">
+						<table>
+							<tr>
+								<td><label for="frm:itemNo">Enter Item #</label></td>
+								<td><h:inputText id="itemNo"/></td>
+							</tr>
+							<tr>
+								<td><h:commandButton/></td>
+							</tr>
+						</table>
+					</wq:accordion-panel>
+				</td>
+			</tr>
+		</table>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</body>
+</html>
