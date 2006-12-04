@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE facelet-taglib SYSTEM "facelet-taglib_1_0.dtd">
+<facelet-taglib>
+	<namespace>http://www.sysdelphia.com/workq</namespace>
+	<tag>
+		<tag-name>dataTable</tag-name>
+		<source>dataTable.html</source>
+	</tag>
+</facelet-taglib>
