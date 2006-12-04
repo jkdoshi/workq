@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:wq="http://www.sysdelphia.com/workq">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Selected Notes</title>
+</head>
+<body>
+<!-- everything outside the ui:composition tag is going to be removed by facelets compiler -->
+<ui:composition template="/WEB-INF/templates/layout.html">
+	<ui:define name="title">Categories</ui:define>
+	<ui:define name="content">
+		<t:tree2 value="#{category.treeModel}" var="node"
+			varNodeToggler="t" clientSideToggle="false" showNav="false"
+			showRootNode="false">
+			<f:facet name="root">Root</f:facet>
+			<f:facet name="category">#{node.name}</f:facet>
+			<f:facet name="note">#{note.id}</f:facet>
+		</t:tree2>
+	</ui:define>
+</ui:composition>
+</body>
+</html>

@@ -34,6 +34,14 @@
 		<managed-bean-scope>request</managed-bean-scope>
 	</managed-bean>
 
+	<managed-bean>
+		<managed-bean-name>category</managed-bean-name>
+		<managed-bean-class>
+			com.sysdelphia.workq.backing.CategoryAction
+		</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
 	<navigation-rule>
 		<from-view-id>/index.jsp</from-view-id>
 		<navigation-case>
@@ -47,6 +55,14 @@
 		<navigation-case>
 			<from-action>#{notes.fetchRows}</from-action>
 			<to-view-id>/notes.html</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/index.html</from-view-id>
+		<navigation-case>
+			<from-action>#{category.fetchRows}</from-action>
+			<to-view-id>/category.html</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 

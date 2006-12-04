@@ -16,7 +16,9 @@ import com.sysdelphia.workq.domain.Note;
 public class NoteDAO {
 	private static final String DATASOURCE_JNDI_NAME = "java:comp/env/jdbc/WorkQDB";
 
-	private static final String SQL_SELECT = "SELECT id, creator, create_timestamp, category, body FROM note";
+	private static final String SQL_FINDALL = "SELECT id, creator, create_timestamp, category, body FROM note";
+
+	private static final String SQL_FINDBYCATEGORY = "SELECT id, creator, create_timestamp, category, body FROM note WHERE category = ?";
 
 	private DataSource dataSource;
 
@@ -29,9 +31,35 @@ public class NoteDAO {
 		List<Note> rows = new ArrayList<Note>();
 		Connection db = dataSource.getConnection();
 		try {
-			PreparedStatement st = db.prepareStatement(SQL_SELECT);
+			PreparedStatement st = db.prepareStatement(SQL_FINDALL);
 			try {
 				// no params to set
+				ResultSet rs = st.executeQuery();
+				while (rs.next()) {
+					Note row = new Note();
+					row.setId(rs.getLong("id"));
+					row.setCreator(rs.getString("creator"));
+					row.setCategory(rs.getInt("category"));
+					row.setCreateTimestamp(rs.getTimestamp("create_timestamp"));
+					row.setBody(rs.getString("body"));
+					rows.add(row);
+				}
+				return rows;
+			} finally {
+				st.close();
+			}
+		} finally {
+			db.close();
+		}
+	}
+
+	public List<Note> findByCategory(long categoryId) throws SQLException {
+		List<Note> rows = new ArrayList<Note>();
+		Connection db = dataSource.getConnection();
+		try {
+			PreparedStatement st = db.prepareStatement(SQL_FINDBYCATEGORY);
+			try {
+				st.setLong(1, categoryId); // set param
 				ResultSet rs = st.executeQuery();
 				while (rs.next()) {
 					Note row = new Note();
