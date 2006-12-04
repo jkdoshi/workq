@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>dataTable</title>
+</head>
+<body>
+<ui:composition>
+	<div class="scrollable" style="height:#{height}">
+	<h:dataTable var="row" value="#{value}"
+		rendered="#{not empty value}"
+		rowClasses="odd,even"
+		columnClasses="odd,even">
+		<ui:insert />
+	</h:dataTable>
+	<h:panelGroup rendered="#{empty value}">
+		<table class="scrollable">
+			<tbody>
+				<tr>
+					<td>No matching data found.</td>
+				</tr>
+			</tbody>
+		</table>
+	</h:panelGroup>
+	</div>
+</ui:composition>
+</body>
+</html>
