@@ -17,7 +17,8 @@
 	<ui:define name="title">Hello Facelets</ui:define>
 	<ui:define name="content">
 		<h:form>
-			<h:commandLink action="#{notes.fetchRows}">Go to Notes</h:commandLink>
+			<h:commandLink action="#{notes.fetchRows}">Go to Notes</h:commandLink><br/>
+			<h:commandLink action="#{category.fetchRows}">Go to Categories</h:commandLink>
 		</h:form>
 	</ui:define>
 </ui:composition>
