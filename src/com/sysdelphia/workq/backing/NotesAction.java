@@ -12,6 +12,8 @@ import com.sysdelphia.workq.domain.Note;
 public class NotesAction {
 	private List<Note> rows = new ArrayList<Note>();
 
+	private long selectedId;
+
 	public List getRows() {
 		return rows;
 	}
@@ -19,5 +21,13 @@ public class NotesAction {
 	public String fetchRows() throws SQLException, NamingException {
 		rows = new NoteDAO().findAll();
 		return "";
+	}
+
+	public long getSelectedId() {
+		return selectedId;
+	}
+
+	public void setSelectedId(long selectedId) {
+		this.selectedId = selectedId;
 	}
 }

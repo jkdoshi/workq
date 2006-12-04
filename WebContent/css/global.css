@@ -79,3 +79,15 @@ div.scrollable th  {
 	/*              th  .tr        .thead     .table     .div */
 }
 /* END  : *************** Scrolling Table with static headers */
+
+/* BEGIN: *************** Tree Table */
+table.tree {
+	font-weight: bold;
+}
+
+table.tree table.nodes {
+	background-color: lightgreen;
+	margin-left: 20px;
+	font-weight: normal;
+}
+/* END  : *************** Tree Table */
