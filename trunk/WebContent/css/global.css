@@ -91,3 +91,22 @@ table.tree table.nodes {
 	font-weight: normal;
 }
 /* END  : *************** Tree Table */
+
+/* BEGIN: *************** Accordion Table */
+table.accordion table td {
+	border: solid black 1px;
+}
+table.accordion tr, table.accordion table, table.accordion td {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table.accordion tr.label {
+	background-color: gray;
+	color: white !important;
+}
+/* END  : *************** Tree Table */
+
+label {
+	text-align: right;
+}
