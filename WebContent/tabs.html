@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:t="http://myfaces.apache.org/tomahawk">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Tabs</title>
+</head>
+<body>
+<!-- everything outside the ui:composition tag is going to be removed by facelets compiler -->
+<ui:composition template="/WEB-INF/templates/layout.html">
+	<ui:define name="title">Tabs</ui:define>
+	<ui:define name="content">
+		<t:panelTabbedPane id="pane1" serverSideTabSwitch="true" style="width:100%">
+			<t:panelTab id="loan" label="Loan Information">
+				<ui:include src="loan.html" />
+			</t:panelTab>
+			<t:panelTab id="docs" label="Document Viewer">
+				<ui:include src="docs.html" />
+			</t:panelTab>
+			<t:panelTab id="admin" label="Application Administration">
+				<ui:include src="admin.html" />
+			</t:panelTab>
+		</t:panelTabbedPane>
+	</ui:define>
+</ui:composition>
+</body>
+</html>
