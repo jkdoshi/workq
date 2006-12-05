@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<description>The WorkQ Web Application Prototype</description>
+	<display-name>workq</display-name>
+
+	<listener>
+		<description>
+			Allows MyFaces to perform init and cleanup
+		</description>
+		<listener-class>
+			org.apache.myfaces.webapp.StartupServletContextListener
+		</listener-class>
+	</listener>
+
+	<servlet>
+		<description>
+			controller servlet for all JSF requests
+		</description>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Faces Servlet</servlet-name>
+		<url-pattern>/faces/*</url-pattern>
+	</servlet-mapping>
+
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>whole-app</web-resource-name>
+			<url-pattern>/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<description>
+				You must log in to use this application
+			</description>
+			<role-name>role1</role-name>
+			<role-name>tomcat</role-name>
+		</auth-constraint>
+	</security-constraint>
+
+	<security-role>
+		<description>Regular users</description>
+		<role-name>role1</role-name>
+	</security-role>
+
+	<security-role>
+		<description>Administrators</description>
+		<role-name>tomcat</role-name>
+	</security-role>
+
+	<login-config>
+		<auth-method>BASIC</auth-method>
+		<realm-name>WorkQ Application Realm</realm-name>
+	</login-config>
+
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
