@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<!-- this is so that hitting this page directly (without facelets) sends to the same page via facelets -->
+<meta http-equiv="refresh" content="0;url=faces/index.html" />
+<title>Hello Facelets</title>
+</head>
+<body>
+<!--  next line will be removed by facelets compiler -->
+<p>Redirecting you to ... <a href="faces/index.html">faces/index.html</a></p>
+
+<ui:composition template="/WEB-INF/templates/layout.html">
+	<ui:define name="title">Hello Facelets</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<h:commandLink action="#{notes.fetchRows}">Go to Notes</h:commandLink>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</body>
+</html>

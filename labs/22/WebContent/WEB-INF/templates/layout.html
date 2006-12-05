@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:c="http://java.sun.com/jstl/core">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/css/global.css" />
+	<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/global.js" />
+	<title><ui:insert name="title">title not defined</ui:insert></title>
+</head>
+<body>
+	<div class="body">
+		<div class="logo">
+			Your logo/banner goes here! <b>Login User: #{facesContext.externalContext.request.remoteUser}</b>
+		</div>
+		<div class="content">
+			<h3><ui:insert name="title">title not defined</ui:insert></h3>
+			<!-- put the body of the template client here -->
+			<ui:insert name="content">content not defined</ui:insert>
+		</div>
+		<div class="messages">
+			<h:messages/>
+		</div>
+		<div class="footer">Copyright &#169; 2006 Sysdelphia Inc.</div>
+	</div>
+	<ui:debug hotkey="v" rendered="#{contextParam.debugMode}" />
+</body>
+</html>
