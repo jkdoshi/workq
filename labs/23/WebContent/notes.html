@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Selected Notes</title>
+</head>
+<body>
+<!-- everything outside the ui:composition tag is going to be removed by facelets compiler -->
+<ui:composition template="/WEB-INF/templates/layout.html">
+	<ui:define name="title">Selected Notes</ui:define>
+	<ui:define name="content">
+		<div style="height: 300px" class="scrollable">
+		<table>
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Category</th>
+					<th>Body</th>
+					<th>Created By</th>
+					<th>Creation Timestamp</th>
+				</tr>
+			</thead>
+			<tbody>
+				<ui:repeat var="row" value="#{notes.rows}">
+					<tr onmouseover="hilite(this)" onmouseout="unhilite(this)"
+						class="#{(row.id % 2 == 0) ? 'even' : 'odd'}">
+						<td>#{row.id}</td>
+						<td>#{row.category}</td>
+						<td>#{row.body}</td>
+						<td>#{row.creator}</td>
+						<td>#{row.createTimestamp}</td>
+					</tr>
+				</ui:repeat>
+			</tbody>
+		</table>
+		</div>
+	</ui:define>
+</ui:composition>
+</body>
+</html>
