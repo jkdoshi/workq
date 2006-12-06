@@ -19,4 +19,18 @@
 			<value>sad</value>
 		</property>
 	</bean>
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql:postgres" />
+		<property name="username" value="postgres" />
+		<property name="password" value="postgres" />
+	</bean>
+
+	<bean id="noteDAO" class="com.sysdelphia.workq.dao.NoteDAO">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+	</bean>
 </beans>
