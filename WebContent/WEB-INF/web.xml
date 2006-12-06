@@ -15,6 +15,13 @@
 		</listener-class>
 	</listener>
 
+	<listener>
+		<description>
+			Allows Spring to perform init and cleanup
+		</description>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
 	<context-param>
 		<param-name>facelets.LIBRARIES</param-name>
 		<param-value>/WEB-INF/tags/workq.taglib.xml;/WEB-INF/tags/tomahawk.taglib.xml</param-value>

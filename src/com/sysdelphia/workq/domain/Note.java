@@ -3,7 +3,7 @@ package com.sysdelphia.workq.domain;
 import java.sql.Timestamp;
 
 public class Note {
-	private long id;
+	private Long id;
 
 	private String creator;
 
@@ -45,11 +45,15 @@ public class Note {
 		this.creator = creator;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String toString() {
+		return "id: " + id + ", category: " + category + ", creator: " + creator + ", body: " + body;
 	}
 }

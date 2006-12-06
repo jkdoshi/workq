@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC
+	"-//SPRING//DTD BEAN//EN"
+	"spring-beans-2.0.dtd">
+<beans>
+	<bean id="dataSource"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/WorkQDB" />
+	</bean>
+
+	<bean id="noteIdIncrementer"
+		class="org.springframework.jdbc.support.incrementer.PostgreSQLSequenceMaxValueIncrementer">
+		<property name="incrementerName" value="note_id_seq" />
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+	</bean>
+
+	<bean id="noteDAO" class="com.sysdelphia.workq.dao.NoteDAO">
+		<property name="dataSource">
+			<ref local="dataSource" />
+		</property>
+		<property name="incrementer">
+			<ref local="noteIdIncrementer" />
+		</property>
+	</bean>
+</beans>
