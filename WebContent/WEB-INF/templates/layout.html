@@ -24,8 +24,8 @@
 			<!-- put the body of the template client here -->
 			<ui:insert name="content">content not defined</ui:insert>
 		</div>
-		<div class="messages">
-			<h:messages/>
+		<div class="messages-#{facesContext.maximumSeverity}">
+			<h:messages showSummary="false" showDetail="true"/>
 		</div>
 		<div class="footer">Copyright &#169; 2006 Sysdelphia Inc.</div>
 	</div>
