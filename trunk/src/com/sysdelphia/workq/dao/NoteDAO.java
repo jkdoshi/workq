@@ -18,7 +18,7 @@ public class NoteDAO extends JdbcDaoSupport {
 
 	private static final String SQL_FINDBYID = SQL_FINDALL + " WHERE id = ?";
 
-	private static final String SQL_UPDATE = "UPDATE note SET category, body WHERE id = ?";
+	private static final String SQL_UPDATE = "UPDATE note SET category=?, body=? WHERE id = ?";
 
 	private static final String SQL_INSERT = "INSERT INTO note (id, creator, category, body) VALUES (?, ?, ?, ?)";
 

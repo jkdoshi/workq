@@ -14,29 +14,47 @@
 <ui:composition template="/WEB-INF/templates/layout.html">
 	<ui:define name="title">Selected Notes</ui:define>
 	<ui:define name="content">
-		<wq:dataTable value="#{notes.rows}" height="300px">
-			<h:column>
-				<f:facet name="header">Id</f:facet>
+		<h:form id="frmList">
+			<wq:dataTable value="#{notes.rows}" height="300px">
+				<h:column>
+					<f:facet name="header">Id</f:facet>
 				#{row.id}
 			</h:column>
-			<h:column>
-				<f:facet name="header">Category</f:facet>
+				<h:column>
+					<f:facet name="header">Category</f:facet>
 				#{row.category}
 			</h:column>
-			<h:column>
-				<f:facet name="header">Body</f:facet>
-				<span onmouseover="hilite(this.parentNode.parentNode)"
-					onmouseout="unhilite(this.parentNode.parentNode)">#{row.body}</span>
-			</h:column>
-			<h:column>
-				<f:facet name="header">Created By</f:facet>
+				<h:column>
+					<f:facet name="header">Body</f:facet>
+					<h:commandLink onmouseover="hilite(this.parentNode.parentNode)"
+						onmouseout="unhilite(this.parentNode.parentNode)"
+						value="#{row.body}">
+						<f:setPropertyActionListener target="#{notes.selectedId}"
+							value="#{row.id}" />
+					</h:commandLink>
+				</h:column>
+				<h:column>
+					<f:facet name="header">Created By</f:facet>
 				#{row.creator}
 			</h:column>
-			<h:column>
-				<f:facet name="header">Creation Timestamp</f:facet>
+				<h:column>
+					<f:facet name="header">Creation Timestamp</f:facet>
 				#{row.createTimestamp}
 			</h:column>
-		</wq:dataTable>
+			</wq:dataTable>
+		</h:form>
+		<h:form id="frmEdit">
+			<h:panelGrid columns="2" rendered="#{not empty notes.selected}">
+				<h:outputLabel for="body" value="Note Body" />
+				<h:inputTextarea id="body" value="#{notes.selected.body}" required="true" />
+				<h:commandButton value="Save" action="#{notes.saveSelected}" />
+				<h:commandButton value="Cancel" immediate="true">
+					<f:setPropertyActionListener target="#{notes.selectedId}"
+						value="#{null}" />
+				</h:commandButton>
+			</h:panelGrid>
+			<h:commandButton value="Create New" action="#{notes.createNew}" immediate="true"/>
+		</h:form>
 	</ui:define>
 </ui:composition>
 </body>
