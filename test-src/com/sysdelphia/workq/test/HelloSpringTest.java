@@ -18,6 +18,15 @@ public class HelloSpringTest extends TestCase {
 	public void testSayHello() {
 		HelloSpring hello = (HelloSpring) factory.getBean("hello");
 		String response = hello.sayHello("Bob");
-		assertEquals("Hello Bob", response);
+		assertEquals("happy hello says Hello Bob", response);
+	}
+
+	public void testProto() {
+		HelloSpring hello1 = (HelloSpring) factory.getBean("hello");
+		HelloSpring hello2 = (HelloSpring) factory.getBean("hello");
+		assertSame(hello1, hello2);
+		HelloSpring proto1 = (HelloSpring) factory.getBean("proto");
+		HelloSpring proto2 = (HelloSpring) factory.getBean("proto");
+		assertNotSame(proto1, proto2);
 	}
 }
