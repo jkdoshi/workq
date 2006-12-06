@@ -16,12 +16,22 @@
 		</property>
 	</bean>
 
-	<bean id="noteDAO" class="com.sysdelphia.workq.dao.NoteDAO">
+	<bean id="daobase" abstract="true">
 		<property name="dataSource">
 			<ref local="dataSource" />
 		</property>
+	</bean>
+
+	<bean id="noteDAO" class="com.sysdelphia.workq.dao.NoteDAO" parent="daobase">
 		<property name="incrementer">
 			<ref local="noteIdIncrementer" />
 		</property>
 	</bean>
+
+	<bean id="categoryDAO" class="com.sysdelphia.workq.dao.CategoryDAO" parent="daobase">
+		<property name="noteDAO">
+			<ref local="noteDAO"/>
+		</property>
+	</bean>
+
 </beans>

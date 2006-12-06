@@ -10,10 +10,17 @@ import com.sysdelphia.workq.domain.Category;
 
 public class CategoryAction {
 	private List<Category> rows;
+
 	private long selectedId = -1;
 
+	private CategoryDAO dao;
+
+	public void setDao(CategoryDAO dao) {
+		this.dao = dao;
+	}
+
 	public String fetchRows() throws SQLException, NamingException {
-		rows = new CategoryDAO().findAll();
+		rows = dao.findAll();
 		return "";
 	}
 
