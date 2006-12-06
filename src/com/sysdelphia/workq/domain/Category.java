@@ -1,9 +1,6 @@
 package com.sysdelphia.workq.domain;
 
-import java.sql.SQLException;
 import java.util.List;
-
-import javax.naming.NamingException;
 
 import com.sysdelphia.workq.dao.NoteDAO;
 
@@ -11,6 +8,12 @@ public class Category {
 	private long id;
 
 	private String name;
+
+	private NoteDAO noteDAO;
+
+	public void setNoteDAO(NoteDAO noteDAO) {
+		this.noteDAO = noteDAO;
+	}
 
 	public long getId() {
 		return id;
@@ -27,8 +30,8 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public List<Note> getNotes() throws NamingException, SQLException {
-		return new NoteDAO().findByCategory(id);
+
+	public List<Note> getNotes() {
+		return noteDAO.findByCategory(id);
 	}
 }

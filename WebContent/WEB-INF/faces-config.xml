@@ -6,7 +6,9 @@
 
 	<application>
 		<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
-		<variable-resolver>org.springframework.web.jsf.DelegatingVariableResolver</variable-resolver>
+		<variable-resolver>
+			org.springframework.web.jsf.DelegatingVariableResolver
+		</variable-resolver>
 		<locale-config>
 			<default-locale>en-US</default-locale>
 		</locale-config>
@@ -45,6 +47,10 @@
 			com.sysdelphia.workq.backing.CategoryAction
 		</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>dao</property-name>
+			<value>#{categoryDAO}</value>
+		</managed-property>
 	</managed-bean>
 
 	<navigation-rule>
