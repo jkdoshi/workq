@@ -3,5 +3,20 @@
 	"-//SPRING//DTD BEAN//EN"
 	"spring-beans-2.0.dtd">
 <beans>
-	<bean id="hello" class="com.sysdelphia.workq.test.HelloSpring" />
+	<bean id="hello" class="com.sysdelphia.workq.test.HelloSpring">
+		<constructor-arg>
+			<value>hello</value>
+		</constructor-arg>
+		<property name="mood">
+			<value>happy</value>
+		</property>
+	</bean>
+	<bean id="proto" class="com.sysdelphia.workq.test.HelloSpring" scope="prototype">
+		<constructor-arg>
+			<value>proto</value>
+		</constructor-arg>
+		<property name="mood">
+			<value>sad</value>
+		</property>
+	</bean>
 </beans>
