@@ -18,6 +18,9 @@
 		<phase-listener>
 			com.sysdelphia.jsf.DebugPhaseListener
 		</phase-listener>
+		<phase-listener>
+			com.sysdelphia.jsf.ViewInitListener
+		</phase-listener>
 	</lifecycle>
 
 	<managed-bean>
