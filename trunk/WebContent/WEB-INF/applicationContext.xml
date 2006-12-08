@@ -34,4 +34,12 @@
 		</property>
 	</bean>
 
+	<bean id="docDAO" class="com.sysdelphia.workq.dao.DocumentDAO" parent="daobase"/>
+
+	<bean id="loanDAO" class="com.sysdelphia.workq.dao.LoanInfoDAO" parent="daobase">
+		<property name="docDAO">
+			<ref local="docDAO"/>
+		</property>
+	</bean>
+
 </beans>

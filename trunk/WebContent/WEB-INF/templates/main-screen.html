@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:c="http://java.sun.com/jstl/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="pragma" content="no-cache" />
+<link rel="stylesheet" type="text/css"
+	href="#{facesContext.externalContext.requestContextPath}/css/global.css" />
+<script type="text/javascript"
+	src="#{facesContext.externalContext.requestContextPath}/js/global.js" />
+<ui:remove>
+	<link rel="stylesheet" type="text/css" href="../../css/global.css" />
+	<script type="text/javascript" src="../../js/global.js" />
+</ui:remove>
+<title><ui:insert name="title">
+	title not defined
+</ui:insert></title>
+</head>
+<body>
+<div class="body">
+<div class="logo" title="logo area">Login User:
+#{facesContext.externalContext.request.remoteUser}</div>
+<table class="parent">
+	<tr>
+		<td><h:form>
+			<div class="sidebar" title="sidebar">
+			<ul>
+				<ui:repeat var="loan" value="#{loanAction.rows}">
+					<li
+						class="level1#{loan.id == loanAction.selectedId ? '-selected' : ''}"><h:commandLink
+						value="#{loan.loanNumber}">
+						<f:setPropertyActionListener target="#{loanAction.selectedId}"
+							value="#{loan.id}" />
+					</h:commandLink>
+					<ul>
+						<ui:repeat rendered="#{loanAction.selectedId == loan.id}"
+							var="doc" value="#{loan.documents}">
+							<li class="level2"><h:commandLink value="#{doc.name}">
+								<f:setPropertyActionListener target="#{loanAction.selectedDoc}"
+									value="#{doc}" />
+							</h:commandLink></li>
+						</ui:repeat>
+					</ul>
+					</li>
+				</ui:repeat>
+			</ul>
+			</div>
+		</h:form></td>
+		<td>
+		<div class="content-tabs" title="content tabs">
+		<div class="content" title="content area"><!-- put the body of the template client here -->
+		<ui:insert name="content">content not defined</ui:insert></div>
+		</div>
+		</td>
+	</tr>
+</table>
+<div class="messages-#{facesContext.maximumSeverity}"><h:messages
+	showSummary="false" showDetail="true" /></div>
+<div class="footer">Copyright &#169; 2006 Sysdelphia Inc.</div>
+</div>
+<ui:debug hotkey="v" rendered="#{contextParam.debugMode}" />
+</body>
+</html>

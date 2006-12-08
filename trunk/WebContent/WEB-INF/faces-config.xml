@@ -80,4 +80,16 @@
 		</navigation-case>
 	</navigation-rule>
 
+	<managed-bean>
+		<managed-bean-name>loanAction</managed-bean-name>
+		<managed-bean-class>
+			com.sysdelphia.workq.backing.LoanInfoAction
+		</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+		<managed-property>
+			<property-name>dao</property-name>
+			<value>#{loanDAO}</value>
+		</managed-property>
+	</managed-bean>
+
 </faces-config>
