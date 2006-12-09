@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC
+	"-//SPRING//DTD BEAN//EN"
+	"spring-beans-2.0.dtd">
+<beans>
+	<bean id="hello" class="com.sysdelphia.workq.test.HelloSpring" />
+</beans>
