@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:wq="http://www.sysdelphia.com/workq">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Selected Notes</title>
+</head>
+<body>
+<!-- everything outside the ui:composition tag is going to be removed by facelets compiler -->
+<ui:composition template="/WEB-INF/templates/layout.html">
+	<ui:define name="title">Categories</ui:define>
+	<ui:define name="content">
+		<h:form>
+			<h:dataTable var="row" value="#{category.rows}" styleClass="tree">
+				<h:column>
+					<h:commandLink value="#{row.name}">
+						<f:setPropertyActionListener target="#{category.selectedId}"
+							value="#{row.id}" />
+					</h:commandLink>
+					<h:dataTable rendered="#{category.selectedId == row.id}" var="note"
+						value="#{row.notes}" styleClass="nodes">
+						<h:column>
+							<h:commandLink value="#{note.id}">
+								<f:setPropertyActionListener target="#{notes.selectedId}"
+									value="#{note.id}" />
+							</h:commandLink>
+						</h:column>
+					</h:dataTable>
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</body>
+</html>
