@@ -1,0 +1,112 @@
+h1,h2,h3,h4,h5,h6 {
+    background-color: deepskyblue;
+    text-align: center;
+    font-family: serif;
+    font-family: sans-serif;
+    text-transform: capitalize;
+    /* firefox adds 18px margin on top and bottom */
+    margin: 0 0 0 0;
+    /*
+	background-image: url(images/search_bg.gif);
+	background-image: url(images/navbg.gif);
+	color: white;
+	*/
+}
+
+div.body {
+    width: 50em;
+    background-color: lavender;
+    border-width: 1px 1px 1px 1px;
+    border-color: blue;
+    border-style: dotted;
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0 auto 0 auto; /* IE:x */
+}
+
+body {
+    background-color: white;
+}
+
+div.messages {
+	border: 2px solid red;
+}
+
+div.footer {
+    text-align: right;
+    font-family: monospace;
+    font-size: 12px;
+}
+
+div.horizontal {
+    display: inline;
+}
+
+div.scrollable table {
+	border-collapse: collapse;
+}
+
+div.scrollable td, div.scrollable th {
+	border: solid black 1px;
+}
+
+tr.odd {
+	background-color: lightblue;
+}
+
+th {
+	color: white;
+	background-color: blue;
+}
+
+td.even {
+	background-color: lavender;
+}
+
+tr.hilite {
+	background-color: gold;
+}
+
+/* BEGIN: *************** Scrolling Table with static headers */
+div.scrollable {
+	overflow: scroll;
+}
+
+div.scrollable th  {
+	position: relative;
+	z-index: 20;
+	top: expression(this.parentNode.parentNode.parentNode.parentNode.scrollTop);
+	/*              th  .tr        .thead     .table     .div */
+}
+/* END  : *************** Scrolling Table with static headers */
+
+/* BEGIN: *************** Tree Table */
+table.tree {
+	font-weight: bold;
+}
+
+table.tree table.nodes {
+	background-color: lightgreen;
+	margin-left: 20px;
+	font-weight: normal;
+}
+/* END  : *************** Tree Table */
+
+/* BEGIN: *************** Accordion Table */
+table.accordion table td {
+	border: solid black 1px;
+}
+table.accordion tr, table.accordion table, table.accordion td {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table.accordion tr.label {
+	background-color: gray;
+	color: white !important;
+}
+/* END  : *************** Tree Table */
+
+label {
+	text-align: right;
+}
