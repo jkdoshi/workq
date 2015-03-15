@@ -1,0 +1,1 @@
+a complete sample JSF application
